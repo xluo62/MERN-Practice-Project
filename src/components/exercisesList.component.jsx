@@ -1,20 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import axios from "axios";
-import Exercise from "./exercise.component";
+import axios from 'axios';
+import Exercise from './exercise.component';
+import Pagination from './pagination.component';
 
 class ExercisesList extends React.Component {
   constructor() {
     super();
     this.state = {
       exercises: [],
-      a: 0,
+      postsPerPage: 4,
+      currentPage: 1,
+      loading: true,
     };
   }
   async componentDidMount() {
-    console.log("called");
+    console.log('called');
     try {
-      const res = await axios.get("http://localhost:5000/exercises");
+      const res = await axios.get('http://localhost:5000/exercises');
       const exercises = res.data;
       console.log(exercises);
       this.setState({
@@ -36,7 +39,18 @@ class ExercisesList extends React.Component {
       console.log(err);
     }
   };
+  onClickPage = (el) => {
+    this.setState({
+      currentPage: el,
+    });
+  };
   render() {
+    const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+    const currentPosts = this.state.exercises.slice(
+      indexOfFirstPost,
+      indexOfLastPost
+    );
     return (
       <div>
         <h3>Logged Exercise</h3>
@@ -51,7 +65,7 @@ class ExercisesList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.exercises.map((el) => (
+            {currentPosts.map((el) => (
               <Exercise
                 key={el._id}
                 exercise={el}
@@ -60,6 +74,12 @@ class ExercisesList extends React.Component {
             ))}
           </tbody>
         </table>
+        <Pagination
+          onClickPage={this.onClickPage}
+          postsPerPage={this.state.postsPerPage}
+          posts={this.state.exercises}
+          currentPage={this.state.currentPage}
+        ></Pagination>
       </div>
     );
   }
