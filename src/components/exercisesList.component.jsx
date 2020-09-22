@@ -4,6 +4,7 @@ import axios from 'axios';
 import Exercise from './exercise.component';
 import Pagination from './pagination.component';
 import PrograssBar from './prograssBar.component';
+import Slider from './slider.component';
 class ExercisesList extends React.Component {
   constructor() {
     super();
@@ -70,10 +71,10 @@ class ExercisesList extends React.Component {
       indexOfLastPost
     );
     return (
-      // conditional rendering
-
       <div className="m-2">
         <h3>Logged Exercise</h3>
+        <Slider></Slider>
+        // conditional rendering
         {this.state.loading ? (
           <PrograssBar atPercent={this.state.atPercent}></PrograssBar>
         ) : (
@@ -99,7 +100,6 @@ class ExercisesList extends React.Component {
             </tbody>
           </table>
         )}
-
         <Pagination
           onClickPage={this.onClickPage}
           postsPerPage={this.state.postsPerPage}

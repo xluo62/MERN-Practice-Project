@@ -1,11 +1,12 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Route } from "react-router-dom";
-import NavBar from "./components/navBar.component";
-import ExercisesList from "./components/exercisesList.component";
-import EditExercise from "./components/editExercise.component";
-import CreateExercise from "./components/createExercise.component";
-import CreateUser from "./components/createUser.component";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './AppNew.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import NavBar from './components/navBar.component';
+import ExercisesList from './components/exercisesList.component';
+import EditExercise from './components/editExercise.component';
+import CreateExercise from './components/createExercise.component';
+import CreateUser from './components/createUser.component';
 function App() {
   return (
     <BrowserRouter>

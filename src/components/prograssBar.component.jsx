@@ -22,7 +22,7 @@ export default function PrograssBar({ atPercent }) {
   return (
     <div style={containerBar}>
       <div style={percentBar}>
-        <span>{atPercent}%</span>
+        <span style={percentText}>{atPercent}%</span>
       </div>
     </div>
   );

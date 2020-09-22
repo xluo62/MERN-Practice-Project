@@ -1,0 +1,57 @@
+.card-rec {
+  border: 3px #f3f3f3 solid;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: red;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  background-color: #f3f3f3;
+  padding: 10px;
+  max-width: 220px;
+  text-align: left;
+  margin: 0 auto;
+}
+.card-rec img {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+#active-slide {
+  opacity: 1;
+  transform: scale(1);
+  background-color: #f3f3f3;
+  border-color: #f3f3f3;
+}
+#active-slide .details {
+  opacity: 1;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex: 1;
+}
+
+.features li {
+  padding-left: 24px;
+  margin-right: 10px;
+  width: 1rem;
+  height: 1rem;
+}
+
+li.icon-bed {
+  background: url(../assets/bed-left-side.svg) left center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+li.icon-bath {
+  background: url(../assets/bathtub.svg) left center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+li.icon-car {
+  background: url(../assets/car-compact.svg) left center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
